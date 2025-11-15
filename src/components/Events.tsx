@@ -1,5 +1,7 @@
 import { Card } from "@/components/ui/card";
-import { TrendingUp, Lightbulb, Calendar, Users } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { TrendingUp, Lightbulb, Calendar, Users, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Events = () => {
   const events = [
@@ -16,7 +18,8 @@ const Events = () => {
       ],
       details: {
         finale: "10th January 2026",
-        eligibility: "Grade XI & XII"
+        eligibility: "Grade XI & XII",
+        registerBy: "4th December 2025"
       }
     },
     {
@@ -32,7 +35,8 @@ const Events = () => {
       ],
       details: {
         finale: "10th January 2026",
-        eligibility: "Grade XI & XII"
+        eligibility: "Grade XI & XII",
+        registerBy: "4th December 2025"
       }
     }
   ];
@@ -86,6 +90,13 @@ const Events = () => {
 
                 <div className="flex flex-wrap gap-4 pt-4 border-t border-border">
                   <div className="flex items-center gap-2">
+                    <Clock className="w-5 h-5 text-accent" />
+                    <div>
+                      <div className="text-sm text-muted-foreground">Register By</div>
+                      <div className="font-semibold text-foreground">{event.details.registerBy}</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
                     <Calendar className="w-5 h-5 text-accent" />
                     <div>
                       <div className="text-sm text-muted-foreground">Grand Finale</div>
@@ -99,6 +110,14 @@ const Events = () => {
                       <div className="font-semibold text-foreground">{event.details.eligibility}</div>
                     </div>
                   </div>
+                </div>
+
+                <div className="mt-6">
+                  <Link to="/register">
+                    <Button size="lg" className="w-full">
+                      Register Now
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </Card>
