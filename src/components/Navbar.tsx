@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import summitLogo from "@/assets/gnu-nextgen-summit-logo.jpg";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,10 +39,12 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="text-2xl font-bold">
-          <span className="bg-gradient-to-r from-[hsl(25,95%,53%)] to-[hsl(12,88%,55%)] bg-clip-text text-transparent">
-            GNU NEXTGEN
-          </span>
+        <div className="flex items-center">
+          <img 
+            src={summitLogo} 
+            alt="GNU NextGen Summit 2026" 
+            className="h-12 md:h-14 w-auto object-contain"
+          />
         </div>
 
         {/* Desktop Navigation */}
