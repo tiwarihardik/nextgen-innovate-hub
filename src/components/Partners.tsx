@@ -1,8 +1,12 @@
 import { Card } from "@/components/ui/card";
+import gnuLogo from "@/assets/gnu-logo.png";
+import trinitiLogo from "@/assets/triniti-logo.png";
+import bSchoolBullsLogo from "@/assets/b-school-bulls-logo.png";
+import angelBlueLogo from "@/assets/angel-blue-logo.png";
 
 const Partners = () => {
   return (
-    <section id="partners" className="py-20 bg-muted/30">
+    <section id="partners" className="py-20 bg-gradient-to-b from-background via-muted/20 to-background">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
@@ -13,49 +17,64 @@ const Partners = () => {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
-          <Card className="p-8 md:p-12 bg-card border-border shadow-lg mb-8">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold mb-4 text-foreground">Hosted By</h3>
-              <div className="flex flex-col items-center gap-3">
-                <p className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Guru Nanak University
+        <div className="max-w-6xl mx-auto space-y-8">
+          {/* Hosted By */}
+          <Card className="p-8 md:p-12 bg-card/80 backdrop-blur-sm border-2 border-border hover:border-primary/30 transition-all shadow-lg">
+            <div className="text-center">
+              <h3 className="text-2xl font-bold mb-8 text-foreground">Hosted By</h3>
+              <div className="flex justify-center">
+                <img 
+                  src={gnuLogo} 
+                  alt="Guru Nanak University, Hyderabad" 
+                  className="h-24 md:h-32 w-auto object-contain"
+                />
+              </div>
+            </div>
+          </Card>
+
+          {/* Powered By */}
+          <Card className="p-8 md:p-12 bg-card/80 backdrop-blur-sm border-2 border-border hover:border-accent/30 transition-all shadow-lg">
+            <div className="text-center">
+              <h3 className="text-2xl font-bold mb-8 text-foreground">Powered By</h3>
+              <div className="flex justify-center">
+                <img 
+                  src={trinitiLogo} 
+                  alt="TRINITi - Scaling New Heights" 
+                  className="h-20 md:h-24 w-auto object-contain"
+                />
+              </div>
+            </div>
+          </Card>
+
+          {/* In Collaboration With */}
+          <Card className="p-8 md:p-12 bg-card/80 backdrop-blur-sm border-2 border-border hover:border-accent/30 transition-all shadow-lg">
+            <h3 className="text-2xl font-bold mb-10 text-center text-foreground">In Collaboration With</h3>
+            <div className="grid md:grid-cols-2 gap-12 items-center justify-items-center max-w-4xl mx-auto">
+              <div className="flex justify-center items-center">
+                <img 
+                  src={bSchoolBullsLogo} 
+                  alt="B School Bulls - Transforming Management Education" 
+                  className="h-16 md:h-20 w-auto object-contain hover:scale-105 transition-transform"
+                />
+              </div>
+              <div className="flex justify-center items-center">
+                <img 
+                  src={angelBlueLogo} 
+                  alt="AngelBlue" 
+                  className="h-12 md:h-16 w-auto object-contain hover:scale-105 transition-transform"
+                />
+              </div>
+            </div>
+            
+            {/* NISA as text since no logo provided */}
+            <div className="mt-12 pt-8 border-t border-border">
+              <div className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full mb-3">
+                  <span className="text-xl font-bold text-primary">NISA</span>
+                </div>
+                <p className="font-semibold text-foreground text-lg">
+                  National Independent Schools Alliance
                 </p>
-                <p className="text-lg text-muted-foreground">Hyderabad • Empowering Youth</p>
-              </div>
-            </div>
-          </Card>
-
-          <Card className="p-8 md:p-12 bg-card border-border shadow-lg mb-8">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold mb-4 text-foreground">Powered By</h3>
-              <div className="flex flex-col items-center gap-3">
-                <p className="text-3xl font-bold text-accent">TRINITi</p>
-                <p className="text-lg text-muted-foreground">Scaling New Heights in Experiential Education</p>
-              </div>
-            </div>
-          </Card>
-
-          <Card className="p-8 md:p-12 bg-card border-border shadow-lg">
-            <h3 className="text-2xl font-bold mb-8 text-center text-foreground">In Collaboration With</h3>
-            <div className="grid md:grid-cols-3 gap-8 text-center">
-              <div>
-                <div className="w-20 h-20 bg-gradient-to-br from-accent/20 to-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-2xl font-bold text-accent">BS</span>
-                </div>
-                <p className="font-semibold text-foreground">B School Bulls</p>
-              </div>
-              <div>
-                <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-2xl font-bold text-primary">NISA</span>
-                </div>
-                <p className="font-semibold text-foreground">National Independent Schools Alliance</p>
-              </div>
-              <div>
-                <div className="w-20 h-20 bg-gradient-to-br from-accent/20 to-primary/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-2xl font-bold text-accent">AB</span>
-                </div>
-                <p className="font-semibold text-foreground">AngelBlue</p>
               </div>
             </div>
           </Card>
