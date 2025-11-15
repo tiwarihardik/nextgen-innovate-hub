@@ -69,7 +69,7 @@ const Partners = () => {
                 <img 
                   src={nisaLogo} 
                   alt="NISA - National Independent Schools Alliance" 
-                  className="h-14 md:h-18 w-auto object-contain hover:scale-105 transition-transform"
+                  className="h-16 md:h-20 w-auto object-contain hover:scale-105 transition-transform"
                 />
               </div>
             </div>
