@@ -3,6 +3,7 @@ import gnuLogo from "@/assets/gnu-logo.png";
 import trinitiLogo from "@/assets/triniti-logo.png";
 import bSchoolBullsLogo from "@/assets/b-school-bulls-logo.png";
 import angelBlueLogo from "@/assets/angel-blue-logo.png";
+import nisaLogo from "@/assets/nisa-logo.webp";
 
 const Partners = () => {
   return (
@@ -49,7 +50,7 @@ const Partners = () => {
           {/* In Collaboration With */}
           <Card className="p-8 md:p-12 bg-card/80 backdrop-blur-sm border-2 border-border hover:border-accent/30 transition-all shadow-lg">
             <h3 className="text-2xl font-bold mb-10 text-center text-foreground">In Collaboration With</h3>
-            <div className="grid md:grid-cols-2 gap-12 items-center justify-items-center max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-12 items-center justify-items-center">
               <div className="flex justify-center items-center">
                 <img 
                   src={bSchoolBullsLogo} 
@@ -64,17 +65,12 @@ const Partners = () => {
                   className="h-12 md:h-16 w-auto object-contain hover:scale-105 transition-transform"
                 />
               </div>
-            </div>
-            
-            {/* NISA as text since no logo provided */}
-            <div className="mt-12 pt-8 border-t border-border">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full mb-3">
-                  <span className="text-xl font-bold text-primary">NISA</span>
-                </div>
-                <p className="font-semibold text-foreground text-lg">
-                  National Independent Schools Alliance
-                </p>
+              <div className="flex justify-center items-center">
+                <img 
+                  src={nisaLogo} 
+                  alt="NISA - National Independent Schools Alliance" 
+                  className="h-14 md:h-18 w-auto object-contain hover:scale-105 transition-transform"
+                />
               </div>
             </div>
           </Card>
