@@ -3,7 +3,7 @@ import gnuLogo from "@/assets/gnu-logo.png";
 import trinitiLogo from "@/assets/triniti-logo.png";
 import bSchoolBullsLogo from "@/assets/b-school-bulls-logo.png";
 import angelBlueLogo from "@/assets/angel-blue-logo.png";
-import nisaLogo from "@/assets/nisa-logo.webp";
+import nisaLogo from "@/assets/nisa-logo-new.png";
 
 const Partners = () => {
   return (
