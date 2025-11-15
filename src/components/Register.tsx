@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Calendar, MapPin, Trophy, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   return (
@@ -56,12 +57,14 @@ const Register = () => {
             </div>
 
             <div className="text-center">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-[hsl(25,95%,53%)] to-[hsl(12,88%,55%)] hover:opacity-90 transition-opacity text-lg px-12 py-6 shadow-xl text-white font-semibold"
-              >
-                Register Now - Closes Soon
-              </Button>
+              <Link to="/register">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-[hsl(25,95%,53%)] to-[hsl(12,88%,55%)] hover:opacity-90 transition-opacity text-lg px-12 py-6 shadow-xl text-white font-semibold"
+                >
+                  Register Now - Closes Soon
+                </Button>
+              </Link>
               <p className="text-sm text-muted-foreground mt-4">
                 Limited spots available • First come, first served
               </p>

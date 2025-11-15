@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import summitLogo from "@/assets/gnu-nextgen-summit-logo.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const scrollToSection = (id: string) => {
@@ -126,12 +127,12 @@ const Footer = () => {
                   </button>
                 </li>
                 <li className="pt-2">
-                  <button 
-                    onClick={() => scrollToSection("register")}
+                  <Link 
+                    to="/register"
                     className="text-sm font-semibold text-accent hover:text-accent/80 transition-colors"
                   >
                     Register Now →
-                  </button>
+                  </Link>
                 </li>
               </ul>
             </div>
