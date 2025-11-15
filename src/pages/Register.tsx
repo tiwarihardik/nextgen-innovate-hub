@@ -25,7 +25,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "sonner";
-import { Calendar, MapPin, Trophy, ArrowLeft } from "lucide-react";
+import { Calendar, MapPin, Trophy } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -59,16 +59,6 @@ const formSchema = z.object({
   eventType: z.enum(["stockathon", "shark-tank", "both"], {
     required_error: "Please select an event",
   }),
-  teamName: z
-    .string()
-    .trim()
-    .max(100, { message: "Team name must be less than 100 characters" })
-    .optional(),
-  teamMembers: z
-    .string()
-    .trim()
-    .max(500, { message: "Team members must be less than 500 characters" })
-    .optional(),
   whyParticipate: z
     .string()
     .trim()
@@ -90,8 +80,6 @@ const Register = () => {
       grade: "",
       city: "",
       eventType: undefined,
-      teamName: "",
-      teamMembers: "",
       whyParticipate: "",
       termsAccepted: false,
     },
@@ -110,12 +98,6 @@ const Register = () => {
       <main className="flex-grow bg-gradient-to-br from-accent/10 via-background to-primary/10 py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            {/* Back Button */}
-            <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6">
-              <ArrowLeft className="w-4 h-4" />
-              Back to Home
-            </Link>
-
             {/* Header */}
             <div className="text-center mb-8">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
@@ -304,44 +286,6 @@ const Register = () => {
                               </div>
                             </RadioGroup>
                           </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="teamName"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Team Name (Optional)</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Enter your team name if applicable" {...field} />
-                          </FormControl>
-                          <FormDescription>
-                            Leave blank if participating individually or team not yet formed
-                          </FormDescription>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="teamMembers"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Team Members (Optional)</FormLabel>
-                          <FormControl>
-                            <Textarea 
-                              placeholder="List your team members' names (one per line)"
-                              className="min-h-[80px]"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormDescription>
-                            Enter names of other team members if you have already formed a team
-                          </FormDescription>
                           <FormMessage />
                         </FormItem>
                       )}
