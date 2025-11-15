@@ -2,8 +2,11 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { TrendingUp, Lightbulb, Calendar, Users, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Events = () => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   const events = [
     {
       title: "STOCKATHON",
@@ -44,7 +47,12 @@ const Events = () => {
   return (
     <section id="events" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center mb-16">
+        <div 
+          ref={ref}
+          className={`max-w-4xl mx-auto text-center mb-16 transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             Flagship Events
           </h2>
@@ -57,7 +65,10 @@ const Events = () => {
           {events.map((event, index) => (
             <Card
               key={index}
-              className={`overflow-hidden border-border shadow-lg hover:shadow-xl transition-all`}
+              className={`overflow-hidden border-border shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 ${
+                isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+              }`}
+              style={{ transitionDelay: `${index * 200}ms` }}
             >
               <div className={`bg-gradient-to-br ${event.gradient} p-8`}>
                 <div className="flex items-start gap-6">
@@ -114,7 +125,7 @@ const Events = () => {
 
                 <div className="mt-6">
                   <Link to="/register">
-                    <Button size="lg" className="w-full">
+                    <Button size="lg" className="w-full group hover:scale-105 transition-transform">
                       Register Now
                     </Button>
                   </Link>

@@ -1,11 +1,19 @@
 import { Card } from "@/components/ui/card";
 import { Lightbulb, Target, Users } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const About = () => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   return (
     <section id="about" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center mb-12">
+        <div 
+          ref={ref}
+          className={`max-w-4xl mx-auto text-center mb-12 transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             About GNU NextGen Summit
           </h2>
@@ -15,7 +23,9 @@ const About = () => {
         </div>
 
         <div className="max-w-6xl mx-auto">
-          <Card className="p-8 mb-8 bg-card border-border shadow-lg">
+          <Card className={`p-8 mb-8 bg-card border-border shadow-lg hover:shadow-xl transition-all duration-700 delay-100 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}>
             <p className="text-lg text-foreground leading-relaxed mb-6">
               Hosted by <span className="font-semibold text-primary">Guru Nanak University, Hyderabad</span>, and powered by <span className="font-semibold text-accent">TRINITi</span>, this national platform celebrates the spirit of learning by blending knowledge, creativity, and competition into one powerful experience.
             </p>
@@ -25,8 +35,10 @@ const About = () => {
           </Card>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="p-6 text-center bg-card border-border hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Card className={`p-6 text-center bg-card border-border hover:shadow-xl hover:scale-105 transition-all duration-500 delay-200 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}>
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <Lightbulb className="w-8 h-8 text-accent" />
               </div>
               <h3 className="text-xl font-bold mb-3 text-foreground">Innovation</h3>
@@ -35,8 +47,10 @@ const About = () => {
               </p>
             </Card>
 
-            <Card className="p-6 text-center bg-card border-border hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Card className={`p-6 text-center bg-card border-border hover:shadow-xl hover:scale-105 transition-all duration-500 delay-300 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}>
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <Target className="w-8 h-8 text-primary" />
               </div>
               <h3 className="text-xl font-bold mb-3 text-foreground">Excellence</h3>
@@ -45,8 +59,10 @@ const About = () => {
               </p>
             </Card>
 
-            <Card className="p-6 text-center bg-card border-border hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Card className={`p-6 text-center bg-card border-border hover:shadow-xl hover:scale-105 transition-all duration-500 delay-400 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}>
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                 <Users className="w-8 h-8 text-accent" />
               </div>
               <h3 className="text-xl font-bold mb-3 text-foreground">Community</h3>
