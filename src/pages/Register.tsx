@@ -56,7 +56,7 @@ const formSchema = z.object({
     .trim()
     .min(2, { message: "City is required" })
     .max(100, { message: "City must be less than 100 characters" }),
-  eventType: z.enum(["stockathon", "shark-tank", "both"], {
+  eventType: z.enum(["stockathon", "shark-tank"], {
     required_error: "Please select an event",
   }),
   whyParticipate: z
@@ -272,15 +272,6 @@ const Register = () => {
                                   <div className="font-semibold">Mini SharkTank</div>
                                   <div className="text-sm text-muted-foreground">
                                     Pitch your business idea to investors
-                                  </div>
-                                </Label>
-                              </div>
-                              <div className="flex items-center space-x-2 bg-muted/50 p-4 rounded-lg border border-border">
-                                <RadioGroupItem value="both" id="both" />
-                                <Label htmlFor="both" className="flex-grow cursor-pointer">
-                                  <div className="font-semibold">Both Events</div>
-                                  <div className="text-sm text-muted-foreground">
-                                    Participate in Stockathon and Mini SharkTank
                                   </div>
                                 </Label>
                               </div>
