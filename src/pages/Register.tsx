@@ -130,8 +130,33 @@ const Register = () => {
         throw new Error("Failed to submit registration");
       }
 
-      toast.success("Registration submitted successfully! We'll contact you soon.");
-      form.reset();
+      // Build Razorpay payment URL with pre-filled data
+      const baseUrl = values.eventType === "stockathon" 
+        ? "https://pages.razorpay.com/gnustockathon"
+        : "https://pages.razorpay.com/minisharktank";
+
+      const params = new URLSearchParams({
+        full_name: values.fullName,
+        email: values.email,
+        phone: values.phone,
+        class: values.grade,
+        stream: values.stream === "other" ? "Others" : values.stream,
+        school: values.schoolName,
+        city: values.city,
+        pincode: values.pincode,
+      });
+
+      // Add other_stream only if stream is "other"
+      if (values.stream === "other" && values.otherStream) {
+        params.append("other_stream", values.otherStream);
+      }
+
+      const paymentUrl = `${baseUrl}?${params.toString()}`;
+
+      toast.success("Registration submitted! Redirecting to payment...");
+      
+      // Redirect to payment page
+      window.location.href = paymentUrl;
     } catch (error) {
       console.error("Registration error:", error);
       toast.error("Failed to submit registration. Please try again.");
