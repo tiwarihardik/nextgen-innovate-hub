@@ -95,7 +95,7 @@ const Register = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      <main className="flex-grow bg-gradient-to-br from-accent/10 via-background to-primary/10 py-12">
+      <main className="flex-grow bg-gradient-to-br from-accent/10 via-background to-primary/10 pt-24 pb-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {/* Header */}
