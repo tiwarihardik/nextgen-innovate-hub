@@ -1,15 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Calendar, MapPin, Trophy } from "lucide-react";
 import summitLogo from "@/assets/gnu-nextgen-summit-logo.png";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
-  const scrollToRegister = () => {
-    const element = document.getElementById("register");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Gradient Background */}
@@ -57,13 +51,14 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              onClick={scrollToRegister}
-              className="bg-gradient-to-r from-[hsl(25,95%,53%)] to-[hsl(12,88%,55%)] hover:opacity-90 transition-opacity text-lg px-8 py-6 shadow-lg"
-            >
-              Register Now - Closes Dec 4th
-            </Button>
+            <Link to="/register">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-[hsl(25,95%,53%)] to-[hsl(12,88%,55%)] hover:opacity-90 transition-opacity text-lg px-8 py-6 shadow-lg"
+              >
+                Register Now - Closes Dec 4th
+              </Button>
+            </Link>
             <Button
               size="lg"
               variant="outline"

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import summitLogo from "@/assets/gnu-nextgen-summit-logo.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -58,12 +59,11 @@ const Navbar = () => {
               {link.label}
             </button>
           ))}
-          <Button
-            onClick={() => scrollToSection("register")}
-            className="bg-gradient-to-r from-[hsl(25,95%,53%)] to-[hsl(12,88%,55%)] hover:opacity-90 transition-opacity"
-          >
-            Register Now
-          </Button>
+          <Link to="/register">
+            <Button className="bg-gradient-to-r from-[hsl(25,95%,53%)] to-[hsl(12,88%,55%)] hover:opacity-90 transition-opacity">
+              Register Now
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -88,12 +88,11 @@ const Navbar = () => {
                 {link.label}
               </button>
             ))}
-            <Button
-              onClick={() => scrollToSection("register")}
-              className="bg-gradient-to-r from-[hsl(25,95%,53%)] to-[hsl(12,88%,55%)] hover:opacity-90 transition-opacity mt-2"
-            >
-              Register Now
-            </Button>
+            <Link to="/register">
+              <Button className="bg-gradient-to-r from-[hsl(25,95%,53%)] to-[hsl(12,88%,55%)] hover:opacity-90 transition-opacity mt-2 w-full">
+                Register Now
+              </Button>
+            </Link>
           </div>
         </div>
       )}
