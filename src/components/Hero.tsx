@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Calendar, MapPin, Trophy } from "lucide-react";
-import summitLogo from "@/assets/gnu-nextgen-summit-logo.jpg";
+import summitLogo from "@/assets/gnu-nextgen-summit-logo.png";
 
 const Hero = () => {
   const scrollToRegister = () => {
@@ -13,11 +13,12 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(25,95%,53%)] via-[hsl(12,88%,55%)] to-[hsl(211,100%,35%)] opacity-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(25,95%,53%)] via-[hsl(12,88%,55%)] to-[hsl(211,100%,28%)] opacity-10" />
       
       {/* Animated Circles */}
       <div className="absolute top-20 left-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse delay-1000" />
+      <div className="absolute top-1/2 right-1/4 w-48 h-48 bg-[hsl(320,85%,55%)]/10 rounded-full blur-3xl animate-pulse delay-500" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-5xl mx-auto">

@@ -50,6 +50,7 @@ export default {
         gradient: {
           primary: "var(--gradient-primary)",
           hero: "var(--gradient-hero)",
+          accent: "var(--gradient-accent)",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
