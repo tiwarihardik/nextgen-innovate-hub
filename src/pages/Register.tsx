@@ -58,6 +58,10 @@ const formSchema = z.object({
     .trim()
     .min(2, { message: "City is required" })
     .max(100, { message: "City must be less than 100 characters" }),
+  pincode: z
+    .string()
+    .trim()
+    .regex(/^\d{6}$/, { message: "Invalid pincode (must be 6 digits)" }),
   eventType: z.enum(["stockathon", "shark-tank"], {
     required_error: "Please select an event",
   }),
@@ -83,6 +87,7 @@ const Register = () => {
       stream: "",
       otherStream: "",
       city: "",
+      pincode: "",
       eventType: undefined,
       whyParticipate: "",
       termsAccepted: false,
@@ -268,19 +273,35 @@ const Register = () => {
                       />
                     )}
 
-                    <FormField
-                      control={form.control}
-                      name="city"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>City *</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Enter your city" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <FormField
+                        control={form.control}
+                        name="city"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>City *</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Enter your city" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="pincode"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Pincode *</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Enter 6-digit pincode" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
                   </div>
 
                   {/* Event Selection */}
