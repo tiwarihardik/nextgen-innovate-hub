@@ -51,6 +51,8 @@ const formSchema = z.object({
     .min(2, { message: "School name is required" })
     .max(200, { message: "School name must be less than 200 characters" }),
   grade: z.string().min(1, { message: "Please select your grade" }),
+  stream: z.string().min(1, { message: "Please select your stream" }),
+  otherStream: z.string().trim().max(100).optional(),
   city: z
     .string()
     .trim()
@@ -78,6 +80,8 @@ const Register = () => {
       phone: "",
       schoolName: "",
       grade: "",
+      stream: "",
+      otherStream: "",
       city: "",
       eventType: undefined,
       whyParticipate: "",
@@ -214,8 +218,6 @@ const Register = () => {
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
-                                <SelectItem value="9">Grade 9</SelectItem>
-                                <SelectItem value="10">Grade 10</SelectItem>
                                 <SelectItem value="11">Grade 11</SelectItem>
                                 <SelectItem value="12">Grade 12</SelectItem>
                               </SelectContent>
@@ -227,18 +229,58 @@ const Register = () => {
 
                       <FormField
                         control={form.control}
-                        name="city"
+                        name="stream"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>City *</FormLabel>
-                            <FormControl>
-                              <Input placeholder="Enter your city" {...field} />
-                            </FormControl>
+                            <FormLabel>Stream *</FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Select your stream" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                <SelectItem value="science">Science</SelectItem>
+                                <SelectItem value="commerce">Commerce</SelectItem>
+                                <SelectItem value="arts">Arts</SelectItem>
+                                <SelectItem value="other">Other</SelectItem>
+                              </SelectContent>
+                            </Select>
                             <FormMessage />
                           </FormItem>
                         )}
                       />
                     </div>
+
+                    {form.watch("stream") === "other" && (
+                      <FormField
+                        control={form.control}
+                        name="otherStream"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Please specify your stream *</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Enter your stream" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    )}
+
+                    <FormField
+                      control={form.control}
+                      name="city"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>City *</FormLabel>
+                          <FormControl>
+                            <Input placeholder="Enter your city" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
                   </div>
 
                   {/* Event Selection */}
