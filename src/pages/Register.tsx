@@ -94,10 +94,48 @@ const Register = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast.success("Registration submitted successfully! We'll contact you soon.");
-    form.reset();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      // Map form values to NocoDB field names
+      const nocodbData = {
+        fields: {
+          "Name": values.fullName,
+          "Email Address": values.email,
+          "Phone Number": values.phone,
+          "School Name": values.schoolName,
+          "Grade/Class": values.grade,
+          "Stream": values.stream === "other" ? values.otherStream : values.stream,
+          "City": values.city,
+          "Pincode": values.pincode,
+          "Event": [values.eventType === "stockathon" ? "Stockathon" : "Mini SharkTank"],
+          "Why Participate?": values.whyParticipate,
+          "Consent": values.termsAccepted
+        }
+      };
+
+      // Submit to NocoDB
+      const response = await fetch(
+        "https://app.nocodb.com/api/v3/data/plgoklu3xqf2kkn/md6djzreivx8f87/records",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "xc-token": "fdZOKDyZF4xBzfRJIiXzInBHPygDBVNJB6qFWbDK"
+          },
+          body: JSON.stringify(nocodbData)
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to submit registration");
+      }
+
+      toast.success("Registration submitted successfully! We'll contact you soon.");
+      form.reset();
+    } catch (error) {
+      console.error("Registration error:", error);
+      toast.error("Failed to submit registration. Please try again.");
+    }
   }
 
   return (
