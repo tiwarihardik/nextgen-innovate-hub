@@ -25,8 +25,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "sonner";
-import { Calendar, MapPin, Trophy } from "lucide-react";
-import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -178,27 +176,6 @@ const Register = () => {
               <p className="text-xl text-muted-foreground mb-6">
                 Join India's brightest student minds
               </p>
-
-              {/* Event Details */}
-              <div className="grid md:grid-cols-3 gap-4 mb-8">
-                <div className="bg-card rounded-lg p-4 text-center border border-border">
-                  <Calendar className="w-8 h-8 text-accent mx-auto mb-2" />
-                  <div className="text-sm text-muted-foreground">Register By</div>
-                  <div className="font-bold text-foreground">4th Dec 2025</div>
-                </div>
-                
-                <div className="bg-card rounded-lg p-4 text-center border border-border">
-                  <MapPin className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <div className="text-sm text-muted-foreground">Grand Finale</div>
-                  <div className="font-bold text-foreground">Vivanta, Hyderabad</div>
-                </div>
-                
-                <div className="bg-card rounded-lg p-4 text-center border border-border">
-                  <Trophy className="w-8 h-8 text-accent mx-auto mb-2" />
-                  <div className="text-sm text-muted-foreground">Prize Pool</div>
-                  <div className="font-bold text-foreground">₹50,000</div>
-                </div>
-              </div>
             </div>
 
             {/* Registration Form */}
