@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Lightbulb, Target, Users } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import CountdownTimer from "./CountdownTimer";
 
 const About = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -20,6 +21,13 @@ const About = () => {
           <p className="text-lg text-muted-foreground leading-relaxed">
             The GNU NextGen Summit 2026 brings together the sharpest student minds from across India to test their skills, pitch their ideas, and take their first steps into the world of finance, entrepreneurship, and innovation.
           </p>
+        </div>
+
+        {/* Countdown Timer */}
+        <div className={`max-w-4xl mx-auto mb-12 transition-all duration-700 delay-100 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}>
+          <CountdownTimer />
         </div>
 
         <div className="max-w-6xl mx-auto">

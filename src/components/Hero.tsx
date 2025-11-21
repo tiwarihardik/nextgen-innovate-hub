@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Calendar, MapPin, Trophy } from "lucide-react";
 import summitLogo from "@/assets/gnu-nextgen-summit-logo.png";
 import { Link } from "react-router-dom";
-import CountdownTimer from "./CountdownTimer";
 
 const Hero = () => {
   return (
@@ -28,11 +27,6 @@ const Hero = () => {
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
             Where India's brightest student minds compete, innovate, and shape the future of finance and entrepreneurship
           </p>
-
-          {/* Countdown Timer */}
-          <div className="max-w-2xl mx-auto mb-8">
-            <CountdownTimer />
-          </div>
 
           {/* Key Info Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 max-w-4xl mx-auto">

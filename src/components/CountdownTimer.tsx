@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
-import { Clock } from "lucide-react";
+import { Clock, Zap } from "lucide-react";
 
 interface TimeLeft {
   days: number;
@@ -53,9 +53,9 @@ const CountdownTimer = () => {
 
   if (isExpired) {
     return (
-      <Card className="bg-card/80 backdrop-blur-sm border-2 border-accent p-6 shadow-lg">
+      <Card className="bg-gradient-to-br from-accent/10 to-primary/10 backdrop-blur-sm border-2 border-accent p-8 shadow-xl">
         <div className="text-center">
-          <p className="text-lg font-bold text-accent">Registration Closed</p>
+          <p className="text-2xl font-bold text-accent">Registration Closed</p>
         </div>
       </Card>
     );
@@ -69,26 +69,43 @@ const CountdownTimer = () => {
   ];
 
   return (
-    <Card className="bg-card/80 backdrop-blur-sm border-2 border-accent/30 p-6 shadow-lg hover:border-accent/50 transition-all">
-      <div className="flex items-center justify-center gap-2 mb-4">
-        <Clock className="w-5 h-5 text-accent" />
-        <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
-          Registration Closes In
-        </h3>
-      </div>
-      <div className="grid grid-cols-4 gap-3">
-        {timeUnits.map((unit, index) => (
-          <div key={index} className="text-center">
-            <div className="bg-gradient-to-br from-accent to-primary rounded-lg p-3 mb-2 shadow-md">
-              <span className="text-2xl md:text-3xl font-bold text-white tabular-nums">
-                {String(unit.value).padStart(2, "0")}
+    <Card className="relative overflow-hidden bg-gradient-to-br from-accent/5 via-primary/5 to-accent/10 backdrop-blur-sm border-2 border-accent/20 p-8 shadow-xl hover:shadow-2xl transition-all duration-500">
+      {/* Decorative gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-50"></div>
+      
+      <div className="relative z-10">
+        <div className="flex items-center justify-center gap-3 mb-6">
+          <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center">
+            <Zap className="w-5 h-5 text-accent" />
+          </div>
+          <h3 className="text-xl md:text-2xl font-bold text-foreground">
+            Registration Closing Soon!
+          </h3>
+        </div>
+        
+        <div className="grid grid-cols-4 gap-4 md:gap-6">
+          {timeUnits.map((unit, index) => (
+            <div key={index} className="text-center group">
+              <div className="relative mb-3">
+                <div className="absolute inset-0 bg-gradient-to-br from-accent to-primary opacity-20 rounded-xl blur-sm group-hover:opacity-30 transition-opacity"></div>
+                <div className="relative bg-gradient-to-br from-accent to-primary rounded-xl p-4 md:p-6 shadow-lg group-hover:scale-105 transition-transform duration-300">
+                  <span className="text-3xl md:text-5xl font-bold text-white tabular-nums drop-shadow-lg">
+                    {String(unit.value).padStart(2, "0")}
+                  </span>
+                </div>
+              </div>
+              <span className="text-xs md:text-sm text-muted-foreground font-semibold uppercase tracking-wider">
+                {unit.label}
               </span>
             </div>
-            <span className="text-xs text-muted-foreground font-medium uppercase tracking-wide">
-              {unit.label}
-            </span>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        <div className="mt-6 text-center">
+          <p className="text-sm text-muted-foreground">
+            Deadline: <span className="font-semibold text-accent">4th December 2025, 11:59 PM</span>
+          </p>
+        </div>
       </div>
     </Card>
   );
