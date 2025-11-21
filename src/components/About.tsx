@@ -50,8 +50,8 @@ const About = () => {
             <Card className={`p-6 text-center bg-card border-border hover:shadow-xl hover:scale-105 transition-all duration-500 delay-300 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}>
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                <Target className="w-8 h-8 text-primary" />
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <Target className="w-8 h-8 text-accent" />
               </div>
               <h3 className="text-xl font-bold mb-3 text-foreground">Excellence</h3>
               <p className="text-muted-foreground">

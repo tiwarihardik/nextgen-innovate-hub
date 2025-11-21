@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import summitLogo from "@/assets/gnu-nextgen-summit-logo.png";
 import { Link } from "react-router-dom";
 
@@ -26,37 +26,6 @@ const Footer = () => {
               <p className="text-sm text-muted-foreground mb-4">
                 Empowering the next generation of leaders through innovation, competition, and collaboration.
               </p>
-              {/* Social Media */}
-              <div className="flex gap-3">
-                <a 
-                  href="#" 
-                  className="w-9 h-9 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors"
-                  aria-label="Facebook"
-                >
-                  <Facebook className="w-4 h-4 text-primary" />
-                </a>
-                <a 
-                  href="#" 
-                  className="w-9 h-9 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="w-4 h-4 text-primary" />
-                </a>
-                <a 
-                  href="#" 
-                  className="w-9 h-9 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-4 h-4 text-primary" />
-                </a>
-                <a 
-                  href="#" 
-                  className="w-9 h-9 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="w-4 h-4 text-primary" />
-                </a>
-              </div>
             </div>
 
             {/* Quick Links */}
@@ -162,6 +131,12 @@ const Footer = () => {
                   <Phone className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
                   <div className="flex flex-col gap-1">
                     <a 
+                      href="tel:+919041310197" 
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      +91 9041310197
+                    </a>
+                    <a 
                       href="tel:+918008295550" 
                       className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                     >
@@ -192,7 +167,7 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row justify-center items-center gap-6 text-center">
               <div className="flex items-center gap-2">
                 <span className="text-sm text-muted-foreground">Hosted by</span>
-                <span className="text-sm text-foreground font-semibold">GNU</span>
+                <span className="text-sm text-foreground font-semibold">Guru Nanak University, Hyderabad</span>
               </div>
               <span className="hidden md:inline text-muted-foreground">|</span>
               <div className="flex items-center gap-2">
