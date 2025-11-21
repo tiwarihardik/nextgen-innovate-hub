@@ -73,7 +73,7 @@ const Events = () => {
               <div className={`bg-gradient-to-br ${event.gradient} p-8`}>
                 <div className="flex items-start gap-6">
                   <div className="w-16 h-16 bg-card rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
-                    <event.icon className="w-8 h-8 text-primary" />
+                    <event.icon className="w-8 h-8 text-accent" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-3xl font-bold mb-2 text-foreground">{event.title}</h3>
@@ -115,7 +115,7 @@ const Events = () => {
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Users className="w-5 h-5 text-primary" />
+                    <Users className="w-5 h-5 text-accent" />
                     <div>
                       <div className="text-sm text-muted-foreground">Eligibility</div>
                       <div className="font-semibold text-foreground">{event.details.eligibility}</div>

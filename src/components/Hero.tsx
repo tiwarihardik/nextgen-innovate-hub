@@ -37,7 +37,7 @@ const Hero = () => {
             </div>
             
             <div className="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-6 shadow-lg">
-              <MapPin className="w-8 h-8 text-primary mx-auto mb-3" />
+              <MapPin className="w-8 h-8 text-accent mx-auto mb-3" />
               <div className="text-sm text-muted-foreground">Venue</div>
               <div className="text-lg font-bold text-foreground">Vivanta, Hyderabad</div>
             </div>
@@ -73,7 +73,7 @@ const Hero = () => {
           </div>
 
           <p className="text-sm text-muted-foreground mt-6">
-            Powered by TRINITi • Hosted by Guru Nanak University, Hyderabad
+            Hosted by Guru Nanak University, Hyderabad • Powered by TRINITi
           </p>
         </div>
       </div>

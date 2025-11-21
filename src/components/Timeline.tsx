@@ -11,7 +11,7 @@ const Timeline = () => {
     },
     {
       stage: "Last Date to Register",
-      date: "30th November 2025",
+      date: "4th December 2025",
       status: "upcoming",
       description: "Final deadline for registrations"
     },
@@ -59,7 +59,7 @@ const Timeline = () => {
                     {event.status === "active" ? (
                       <Clock className="w-6 h-6 text-accent" />
                     ) : (
-                      <CheckCircle2 className="w-6 h-6 text-muted-foreground" />
+                      <CheckCircle2 className="w-6 h-6 text-accent" />
                     )}
                   </div>
 
@@ -76,7 +76,7 @@ const Timeline = () => {
                         </span>
                       )}
                       <div className="flex items-start gap-3 mb-3">
-                        <Calendar className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                        <Calendar className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
                         <div>
                           <h3 className="text-xl font-bold text-foreground mb-1">
                             {event.stage}

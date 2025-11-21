@@ -28,8 +28,8 @@ const Prizes = () => {
             </Card>
 
             <Card className="p-8 bg-card border-border shadow-lg text-center">
-              <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="w-10 h-10 text-primary" />
+              <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="w-10 h-10 text-accent" />
               </div>
               <h3 className="text-2xl font-bold mb-3 text-foreground">Excellence Certificates</h3>
               <p className="text-muted-foreground mb-4">
