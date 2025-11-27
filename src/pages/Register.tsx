@@ -86,6 +86,7 @@ const formSchema = z.object({
 const Register = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    mode: "onChange",
     defaultValues: {
       fullName: "",
       email: "",
@@ -203,11 +204,15 @@ const Register = () => {
                     <FormField
                       control={form.control}
                       name="fullName"
-                      render={({ field }) => (
+                      render={({ field, fieldState }) => (
                         <FormItem>
                           <FormLabel>Full Name *</FormLabel>
                           <FormControl>
-                            <Input placeholder="Enter your full name" {...field} />
+                            <Input 
+                              placeholder="Enter your full name" 
+                              className={fieldState.error ? "border-destructive" : fieldState.isDirty && !fieldState.error ? "border-green-500" : ""}
+                              {...field} 
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -218,11 +223,16 @@ const Register = () => {
                       <FormField
                         control={form.control}
                         name="email"
-                        render={({ field }) => (
+                        render={({ field, fieldState }) => (
                           <FormItem>
                             <FormLabel>Email Address *</FormLabel>
                             <FormControl>
-                              <Input type="email" placeholder="your.email@example.com" {...field} />
+                              <Input 
+                                type="email" 
+                                placeholder="your.email@example.com" 
+                                className={fieldState.error ? "border-destructive" : fieldState.isDirty && !fieldState.error ? "border-green-500" : ""}
+                                {...field} 
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -232,11 +242,16 @@ const Register = () => {
                       <FormField
                         control={form.control}
                         name="phone"
-                        render={({ field }) => (
+                        render={({ field, fieldState }) => (
                           <FormItem>
                             <FormLabel>Phone Number *</FormLabel>
                             <FormControl>
-                              <Input type="tel" placeholder="9876543210" {...field} />
+                              <Input 
+                                type="tel" 
+                                placeholder="9876543210" 
+                                className={fieldState.error ? "border-destructive" : fieldState.isDirty && !fieldState.error ? "border-green-500" : ""}
+                                {...field} 
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -252,11 +267,15 @@ const Register = () => {
                     <FormField
                       control={form.control}
                       name="schoolName"
-                      render={({ field }) => (
+                      render={({ field, fieldState }) => (
                         <FormItem>
                           <FormLabel>School Name *</FormLabel>
                           <FormControl>
-                            <Input placeholder="Enter your school name" {...field} />
+                            <Input 
+                              placeholder="Enter your school name" 
+                              className={fieldState.error ? "border-destructive" : fieldState.isDirty && !fieldState.error ? "border-green-500" : ""}
+                              {...field} 
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -315,11 +334,15 @@ const Register = () => {
                       <FormField
                         control={form.control}
                         name="otherStream"
-                        render={({ field }) => (
+                        render={({ field, fieldState }) => (
                           <FormItem>
                             <FormLabel>Please specify your stream *</FormLabel>
                             <FormControl>
-                              <Input placeholder="Enter your stream" {...field} />
+                              <Input 
+                                placeholder="Enter your stream" 
+                                className={fieldState.error ? "border-destructive" : fieldState.isDirty && !fieldState.error ? "border-green-500" : ""}
+                                {...field} 
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -331,11 +354,15 @@ const Register = () => {
                       <FormField
                         control={form.control}
                         name="city"
-                        render={({ field }) => (
+                        render={({ field, fieldState }) => (
                           <FormItem>
                             <FormLabel>City *</FormLabel>
                             <FormControl>
-                              <Input placeholder="Enter your city" {...field} />
+                              <Input 
+                                placeholder="Enter your city" 
+                                className={fieldState.error ? "border-destructive" : fieldState.isDirty && !fieldState.error ? "border-green-500" : ""}
+                                {...field} 
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -345,11 +372,15 @@ const Register = () => {
                       <FormField
                         control={form.control}
                         name="pincode"
-                        render={({ field }) => (
+                        render={({ field, fieldState }) => (
                           <FormItem>
                             <FormLabel>Pincode *</FormLabel>
                             <FormControl>
-                              <Input placeholder="Enter 6-digit pincode" {...field} />
+                              <Input 
+                                placeholder="Enter 6-digit pincode" 
+                                className={fieldState.error ? "border-destructive" : fieldState.isDirty && !fieldState.error ? "border-green-500" : ""}
+                                {...field} 
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -407,13 +438,13 @@ const Register = () => {
                     <FormField
                       control={form.control}
                       name="whyParticipate"
-                      render={({ field }) => (
+                      render={({ field, fieldState }) => (
                         <FormItem>
                           <FormLabel>Why do you want to participate in GNU NextGen Summit 2026? *</FormLabel>
                           <FormControl>
                             <Textarea 
                               placeholder="Share your motivation, goals, or what you hope to learn..."
-                              className="min-h-[120px]"
+                              className={`min-h-[120px] ${fieldState.error ? "border-destructive" : fieldState.isDirty && !fieldState.error ? "border-green-500" : ""}`}
                               {...field}
                             />
                           </FormControl>
