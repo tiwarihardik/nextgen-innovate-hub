@@ -71,6 +71,16 @@ const formSchema = z.object({
   termsAccepted: z.boolean().refine((val) => val === true, {
     message: "You must accept the terms and conditions",
   }),
+  refBy: z
+    .string()
+    .trim()
+    .max(100, { message: "Referral name must be less than 100 characters" })
+    .optional(),
+  couponCode: z
+    .string()
+    .trim()
+    .max(50, { message: "Coupon code must be less than 50 characters" })
+    .optional(),
 });
 
 const Register = () => {
@@ -89,6 +99,8 @@ const Register = () => {
       eventType: undefined,
       whyParticipate: "",
       termsAccepted: false,
+      refBy: "",
+      couponCode: "",
     },
   });
 
@@ -107,7 +119,9 @@ const Register = () => {
           "Pincode": values.pincode,
           "Event": [values.eventType === "stockathon" ? "Stockathon" : "Mini SharkTank"],
           "Why Participate?": values.whyParticipate,
-          "Consent": values.termsAccepted
+          "Consent": values.termsAccepted,
+          "Ref By": values.refBy || "",
+          "Coupon Code": values.couponCode || ""
         }
       };
 
@@ -410,6 +424,36 @@ const Register = () => {
                         </FormItem>
                       )}
                     />
+
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <FormField
+                        control={form.control}
+                        name="refBy"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Referred By (Optional)</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Enter referrer's name" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="couponCode"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Coupon Code (Optional)</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Enter coupon code" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
                   </div>
 
                   {/* Terms and Conditions */}
