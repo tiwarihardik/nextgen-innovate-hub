@@ -71,11 +71,8 @@ const formSchema = z.object({
   termsAccepted: z.boolean().refine((val) => val === true, {
     message: "You must accept the terms and conditions",
   }),
-  refBy: z
-    .string()
-    .trim()
-    .max(100, { message: "Referral name must be less than 100 characters" })
-    .optional(),
+  refBy: z.string().optional(),
+  otherRefBy: z.string().trim().max(100).optional(),
   couponCode: z
     .string()
     .trim()
@@ -101,6 +98,7 @@ const Register = () => {
       whyParticipate: "",
       termsAccepted: false,
       refBy: "",
+      otherRefBy: "",
       couponCode: "",
     },
   });
@@ -121,7 +119,7 @@ const Register = () => {
           "Event": [values.eventType === "stockathon" ? "Stockathon" : "Mini SharkTank"],
           "Why Participate?": values.whyParticipate,
           "Consent": values.termsAccepted,
-          "Ref By": values.refBy || "",
+          "Ref By": values.refBy === "other" && values.otherRefBy ? values.otherRefBy : (values.refBy || ""),
           "Coupon Code": values.couponCode || ""
         }
       };
@@ -456,20 +454,52 @@ const Register = () => {
                       )}
                     />
 
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-4">
                       <FormField
                         control={form.control}
                         name="refBy"
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>Referred By (Optional)</FormLabel>
-                            <FormControl>
-                              <Input placeholder="Enter referrer's name" {...field} />
-                            </FormControl>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Select referral source" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent className="bg-background z-50">
+                                <SelectItem value="nisa">NISA</SelectItem>
+                                <SelectItem value="fap">FAP</SelectItem>
+                                <SelectItem value="triniti">TRINITi</SelectItem>
+                                <SelectItem value="eduthon">Eduthon</SelectItem>
+                                <SelectItem value="gnu">GNU</SelectItem>
+                                <SelectItem value="other">Other</SelectItem>
+                              </SelectContent>
+                            </Select>
                             <FormMessage />
                           </FormItem>
                         )}
                       />
+
+                      {form.watch("refBy") === "other" && (
+                        <FormField
+                          control={form.control}
+                          name="otherRefBy"
+                          render={({ field, fieldState }) => (
+                            <FormItem>
+                              <FormLabel>Please specify referral source *</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Enter referral source" 
+                                  className={fieldState.error ? "border-destructive" : fieldState.isDirty && !fieldState.error ? "border-green-500" : ""}
+                                  {...field} 
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      )}
 
                       <FormField
                         control={form.control}
