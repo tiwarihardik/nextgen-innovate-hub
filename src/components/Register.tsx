@@ -22,7 +22,7 @@ const Register = () => {
               <div className="bg-muted/50 rounded-lg p-4 text-center">
                 <Calendar className="w-8 h-8 text-accent mx-auto mb-2" />
                 <div className="text-sm text-muted-foreground">Register By</div>
-                <div className="font-bold text-foreground">4th Dec 2025</div>
+                <div className="font-bold text-foreground">8th Dec 2025</div>
               </div>
               
               <div className="bg-muted/50 rounded-lg p-4 text-center">
