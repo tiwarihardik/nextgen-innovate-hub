@@ -542,6 +542,24 @@ const Register = () => {
                     )}
                   />
 
+                  {/* Payment Information */}
+                  <div className="bg-accent/10 border border-accent/30 rounded-lg p-6">
+                    <div className="flex items-start gap-3">
+                      <div className="bg-accent/20 rounded-full p-2 mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-foreground mb-2">Payment & Registration Completion</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          After submitting this form, you will be redirected to our secure payment gateway to complete your registration fee. 
+                          <span className="font-semibold text-foreground"> Your registration will only be confirmed after successful payment completion.</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
                   {/* Submit Button */}
                   <div className="pt-4">
                     <Button
@@ -549,10 +567,10 @@ const Register = () => {
                       size="lg"
                       className="w-full bg-gradient-to-r from-[hsl(25,95%,53%)] to-[hsl(12,88%,55%)] hover:opacity-90 transition-opacity text-lg py-6 text-white font-semibold"
                     >
-                      Submit Registration
+                      Proceed to Payment
                     </Button>
                     <p className="text-sm text-muted-foreground text-center mt-4">
-                      You'll receive a confirmation email within 24-48 hours
+                      You'll receive a confirmation email within 24-48 hours after payment
                     </p>
                   </div>
                 </form>
