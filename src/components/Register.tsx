@@ -8,6 +8,18 @@ const Register = () => {
     <section id="register" className="py-20 bg-gradient-to-br from-accent/10 via-background to-primary/10">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
+          {/* Free Registration Banner */}
+          <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl p-6 mb-6 shadow-lg">
+            <div className="flex items-center justify-center gap-3">
+              <span className="text-3xl">🎉</span>
+              <div className="text-center">
+                <p className="text-2xl md:text-3xl font-bold">REGISTRATIONS ARE NOW FREE!</p>
+                <p className="text-sm md:text-base opacity-90">Starting 2nd December 2025 - Limited time offer</p>
+              </div>
+              <span className="text-3xl">🎉</span>
+            </div>
+          </div>
+
           <Card className="p-8 md:p-12 bg-card/95 backdrop-blur-sm border-2 border-accent/20 shadow-2xl">
             <div className="text-center mb-8">
               <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
@@ -26,7 +38,7 @@ const Register = () => {
               </div>
               
               <div className="bg-muted/50 rounded-lg p-4 text-center">
-                <MapPin className="w-8 h-8 text-primary mx-auto mb-2" />
+                <MapPin className="w-8 h-8 text-accent mx-auto mb-2" />
                 <div className="text-sm text-muted-foreground">Grand Finale</div>
                 <div className="font-bold text-foreground">Vivanta, Hyderabad</div>
               </div>
@@ -62,7 +74,7 @@ const Register = () => {
                   size="lg"
                   className="bg-gradient-to-r from-[hsl(25,95%,53%)] to-[hsl(12,88%,55%)] hover:opacity-90 transition-opacity text-lg px-12 py-6 shadow-xl text-white font-semibold"
                 >
-                  Register Now - Closes Soon
+                  Register Now - It's Free!
                 </Button>
               </Link>
               <p className="text-sm text-muted-foreground mt-4">
