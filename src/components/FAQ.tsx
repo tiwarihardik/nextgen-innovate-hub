@@ -20,7 +20,7 @@ const FAQ = () => {
     },
     {
       question: "Is there a registration fee?",
-      answer: "Yes, there is a registration fee. After completing the registration form, you'll be redirected to our secure payment page to complete your registration."
+      answer: "Great news! Starting 2nd December 2025, registrations are completely FREE! We want to encourage more students to participate and showcase their talents. Simply fill out the registration form and you're in!"
     },
     {
       question: "Can I participate in both Stockathon and Mini SharkTank?",
@@ -35,8 +35,8 @@ const FAQ = () => {
       answer: "Preliminary rounds will be conducted in December 2025. Specific formats and requirements will be shared with registered participants via email. These rounds will help select the finalists who will compete at the Grand Finale in Hyderabad."
     },
     {
-      question: "What happens after I register and pay?",
-      answer: "After successful registration and payment, you'll receive a confirmation email within 24-48 hours with detailed event information, preliminary round details, and next steps."
+      question: "What happens after I register?",
+      answer: "After successful registration, you'll receive a confirmation email within 24-48 hours with detailed event information, preliminary round details, and next steps."
     },
     {
       question: "Where is the Grand Finale being held?",
