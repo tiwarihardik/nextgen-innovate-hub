@@ -141,33 +141,8 @@ const Register = () => {
         throw new Error("Failed to submit registration");
       }
 
-      // Build Razorpay payment URL with pre-filled data
-      const baseUrl = values.eventType === "stockathon" 
-        ? "https://pages.razorpay.com/gnustockathon"
-        : "https://pages.razorpay.com/minisharktank";
-
-      const params = new URLSearchParams({
-        full_name: values.fullName,
-        email: values.email,
-        phone: values.phone,
-        class: values.grade,
-        stream: values.stream === "other" ? "Others" : values.stream,
-        school: values.schoolName,
-        city: values.city,
-        pincode: values.pincode,
-      });
-
-      // Add other_stream only if stream is "other"
-      if (values.stream === "other" && values.otherStream) {
-        params.append("other_stream", values.otherStream);
-      }
-
-      const paymentUrl = `${baseUrl}?${params.toString()}`;
-
-      toast.success("Registration submitted! Redirecting to payment...");
-      
-      // Redirect to payment page
-      window.location.href = paymentUrl;
+      toast.success("Registration successful! You'll receive a confirmation email within 24-48 hours.");
+      form.reset();
     } catch (error) {
       console.error("Registration error:", error);
       toast.error("Failed to submit registration. Please try again.");
@@ -181,6 +156,18 @@ const Register = () => {
       <main className="flex-grow bg-gradient-to-br from-accent/10 via-background to-primary/10 pt-24 pb-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
+            {/* Free Registration Banner */}
+            <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl p-6 mb-8 shadow-lg animate-pulse">
+              <div className="flex items-center justify-center gap-3">
+                <span className="text-3xl">🎉</span>
+                <div className="text-center">
+                  <p className="text-2xl md:text-3xl font-bold">REGISTRATIONS ARE NOW FREE!</p>
+                  <p className="text-sm md:text-base opacity-90">Starting 2nd December 2025 - Limited time offer to encourage student participation</p>
+                </div>
+                <span className="text-3xl">🎉</span>
+              </div>
+            </div>
+
             {/* Header */}
             <div className="text-center mb-8">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
@@ -542,24 +529,6 @@ const Register = () => {
                     )}
                   />
 
-                  {/* Payment Information */}
-                  <div className="bg-accent/10 border border-accent/30 rounded-lg p-6">
-                    <div className="flex items-start gap-3">
-                      <div className="bg-accent/20 rounded-full p-2 mt-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-foreground mb-2">Payment & Registration Completion</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          After submitting this form, you will be redirected to our secure payment gateway to complete your registration fee. 
-                          <span className="font-semibold text-foreground"> Your registration will only be confirmed after successful payment completion.</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
                   {/* Submit Button */}
                   <div className="pt-4">
                     <Button
@@ -567,10 +536,10 @@ const Register = () => {
                       size="lg"
                       className="w-full bg-gradient-to-r from-[hsl(25,95%,53%)] to-[hsl(12,88%,55%)] hover:opacity-90 transition-opacity text-lg py-6 text-white font-semibold"
                     >
-                      Proceed to Payment
+                      Complete Free Registration
                     </Button>
                     <p className="text-sm text-muted-foreground text-center mt-4">
-                      You'll receive a confirmation email within 24-48 hours after payment
+                      You'll receive a confirmation email within 24-48 hours
                     </p>
                   </div>
                 </form>
