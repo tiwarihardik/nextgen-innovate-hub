@@ -157,7 +157,7 @@ const Register = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {/* Free Registration Banner */}
-            <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl p-6 mb-8 shadow-lg animate-pulse">
+            <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl p-6 mb-8 shadow-lg">
               <div className="flex items-center justify-center gap-3">
                 <span className="text-3xl">🎉</span>
                 <div className="text-center">
