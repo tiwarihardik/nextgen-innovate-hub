@@ -16,7 +16,7 @@ const FAQ = () => {
     },
     {
       question: "What is the registration deadline?",
-      answer: "The last date to register is 8th December 2025. We recommend registering early as spots are limited and will be allocated on a first-come, first-served basis."
+      answer: "The last date to register is 13th December 2025. We recommend registering early as spots are limited and will be allocated on a first-come, first-served basis."
     },
     {
       question: "Is there a registration fee?",
