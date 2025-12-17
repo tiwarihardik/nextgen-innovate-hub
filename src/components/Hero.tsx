@@ -56,7 +56,7 @@ const Hero = () => {
                 size="lg"
                 className="bg-gradient-to-r from-[hsl(25,95%,53%)] to-[hsl(12,88%,55%)] hover:opacity-90 transition-opacity text-lg px-8 py-6 shadow-lg"
               >
-                Register Now - Closes Dec 13th
+                Register Now
               </Button>
             </Link>
             <Button
