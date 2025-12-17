@@ -22,7 +22,7 @@ const Events = () => {
       details: {
         finale: "10th January 2026",
         eligibility: "Grade XI & XII",
-        registerBy: "13th December 2025"
+        registerBy: "26th December 2025"
       }
     },
     {
@@ -39,7 +39,7 @@ const Events = () => {
       details: {
         finale: "10th January 2026",
         eligibility: "Grade XI & XII",
-        registerBy: "13th December 2025"
+        registerBy: "18th December 2025"
       }
     }
   ];
