@@ -20,7 +20,7 @@ const CountdownTimer = () => {
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const targetDate = new Date("2025-12-13T23:59:59").getTime();
+      const targetDate = new Date("2025-12-26T23:59:59").getTime();
       const now = new Date().getTime();
       const difference = targetDate - now;
 
@@ -103,7 +103,7 @@ const CountdownTimer = () => {
 
         <div className="mt-6 text-center">
           <p className="text-sm text-muted-foreground">
-            Deadline: <span className="font-semibold text-accent">13th December 2025, 11:59 PM</span>
+            Deadline: <span className="font-semibold text-accent">26th December 2025, 11:59 PM</span>
           </p>
         </div>
       </div>
