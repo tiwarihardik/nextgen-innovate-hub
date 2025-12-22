@@ -11,7 +11,7 @@ const Timeline = () => {
     },
     {
       stage: "Last Date to Register",
-      date: "18th December 2025",
+      date: "26th December 2025",
       status: "upcoming",
       description: "Final deadline for registrations"
     },
