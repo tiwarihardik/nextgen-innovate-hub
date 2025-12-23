@@ -107,7 +107,7 @@ const Register = () => {
       };
 
       const response = await fetch(
-        "db.megamindco.com/api/v3/data/pmptxup2eg28i91/mobpgk7s0tct0tb/records",
+        "https://db.megamindco.com/api/v3/data/pmptxup2eg28i91/mobpgk7s0tct0tb/records",
         {
           method: "POST",
           headers: {
