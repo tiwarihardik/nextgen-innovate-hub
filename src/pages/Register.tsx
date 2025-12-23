@@ -107,12 +107,12 @@ const Register = () => {
       };
 
       const response = await fetch(
-        "https://app.nocodb.com/api/v3/data/plgoklu3xqf2kkn/md6djzreivx8f87/records",
+        "db.megamindco.com/api/v3/data/pmptxup2eg28i91/mobpgk7s0tct0tb/records",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "xc-token": "fdZOKDyZF4xBzfRJIiXzInBHPygDBVNJB6qFWbDK",
+            "xc-token": "QqpcG3p4yhTWyDaLOVD1tE17IVZCSi8pw4Dvr70_",
           },
           body: JSON.stringify(nocodbData),
         }
