@@ -112,7 +112,7 @@ const Register = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "xc-token": "PDJyOuaf-4PQXeK4UBMumQi4AW6EfrG_NauageBo",
+            "xc-token": "fdZOKDyZF4xBzfRJIiXzInBHPygDBVNJB6qFWbDK",
           },
           body: JSON.stringify(nocodbData),
         }
