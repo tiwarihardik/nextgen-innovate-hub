@@ -17,11 +17,14 @@ import Footer from "@/components/Footer";
 import { toast } from "sonner";
 
 const schema = z.object({
-  principalName: z.string().min(2, "Name is required").max(120),
-  designation: z.string().min(2, "Designation is required").max(120),
-  schoolName: z.string().min(2, "School/College name is required").max(200),
+  principalName: z.string().min(2, "Name is required"),
+  designation: z.string().min(2, "Designation is required"),
+  schoolName: z.string().min(2, "School/College name is required"),
   email: z.string().email("Enter a valid email"),
   phone: z.string().regex(/^[6-9]\d{9}$/, "Enter a valid phone number"),
+
+  // NEW FIELD (Only 1 field, no 'otherRef')
+  refBy: z.string().min(1, "Required"),
 });
 
 const PrincipalRegister = () => {
@@ -33,6 +36,7 @@ const PrincipalRegister = () => {
       schoolName: "",
       email: "",
       phone: "",
+      refBy: "",
     },
   });
 
@@ -45,6 +49,7 @@ const PrincipalRegister = () => {
           "School / College Name": values.schoolName,
           Email: values.email,
           Phone: values.phone,
+          "Referred By": values.refBy, // directly save value
         },
       };
 
@@ -113,7 +118,7 @@ const PrincipalRegister = () => {
                   )}
                 />
 
-                {/* School / College */}
+                {/* School Name */}
                 <FormField
                   control={form.control}
                   name="schoolName"
@@ -159,10 +164,34 @@ const PrincipalRegister = () => {
                   />
                 </div>
 
-                <Button
-                  className="w-full py-6 bg-orange-600 text-white text-lg"
-                  type="submit"
-                >
+                {/* REFERRED BY */}
+                <FormField
+                  control={form.control}
+                  name="refBy"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Referred By *</FormLabel>
+                      <FormControl>
+                        <select
+                          className="border rounded-md p-3"
+                          value={field.value}
+                          onChange={field.onChange}
+                        >
+                          <option value="">Select</option>
+                          <option value="trinitii">Triniti</option>
+                          <option value="fap">FAP</option>
+                          <option value="nisa">NISA</option>
+                          <option value="aip">AIP</option>
+                          <option value="gnu">GNU</option>
+                          <option value="others">Others</option>
+                        </select>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <Button className="w-full py-6 bg-orange-600 text-white text-lg" type="submit">
                   Submit Details
                 </Button>
               </form>
