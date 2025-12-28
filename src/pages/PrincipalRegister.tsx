@@ -49,7 +49,7 @@ const PrincipalRegister = () => {
       };
 
       const res = await fetch(
-        "https://db.megamindco.com/api/v3/data/pmptxup2eg28i91/<YOUR_TABLE_ID>/records",
+        "https://db.megamindco.com/api/v3/data/pmptxup2eg28i91/m2bra90hvfdy4gc/records",
         {
           method: "POST",
           headers: {
