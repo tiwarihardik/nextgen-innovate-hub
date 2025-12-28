@@ -178,7 +178,7 @@ const PrincipalRegister = () => {
                           onChange={field.onChange}
                         >
                           <option value="">Select</option>
-                          <option value="trinitii">Triniti</option>
+                          <option value="triniti">TRINITi</option>
                           <option value="fap">FAP</option>
                           <option value="nisa">NISA</option>
                           <option value="aip">AIP</option>
