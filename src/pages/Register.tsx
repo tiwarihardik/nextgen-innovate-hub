@@ -18,9 +18,10 @@ import { toast } from "sonner";
 
 /* =========================
    CORPORATE REGISTRATION
+   (NOCODB v3 – FINAL)
    ========================= */
 
-const corporateSchema = z.object({
+const schema = z.object({
   name: z.string().optional(),
   designation: z.string().optional(),
   companyName: z.string().optional(),
@@ -29,9 +30,9 @@ const corporateSchema = z.object({
   refBy: z.string().optional(),
 });
 
-const CorporateRegister = () => {
+export default function Register() {
   const form = useForm({
-    resolver: zodResolver(corporateSchema),
+    resolver: zodResolver(schema),
     defaultValues: {
       name: "",
       designation: "",
@@ -42,23 +43,23 @@ const CorporateRegister = () => {
     },
   });
 
-  async function onSubmit(values) {
+  async function onSubmit(values: any) {
     try {
       const payload = {
-        records: [
-          {
-            Name: values.name || "",
-            Designation: values.designation || "",
-            "Company Name": values.companyName || "",
-            Email: values.email || "",
-            Phone: values.phone || "",
-            "Referred By": values.refBy || "",
-          },
-        ],
+        fields: {
+          Name: values.name || "",
+          Designation: values.designation || "",
+          "Company Name": values.companyName || "",
+          Email: values.email || "",
+          Phone: values.phone || "",
+          "Referred By": values.refBy || "",
+        },
       };
 
+      console.log("NOCODB PAYLOAD:", payload); // DEBUG (can remove later)
+
       const res = await fetch(
-        "https://db.megamindco.com/api/v2/tables/m46c9xavtctgenb/records?viewId=vw13akszrw06xac5",
+        "https://db.megamindco.com/api/v3/data/pmptxup2eg28i91/m46c9xavtctgenb/records",
         {
           method: "POST",
           headers: {
@@ -71,8 +72,8 @@ const CorporateRegister = () => {
 
       if (!res.ok) {
         const err = await res.text();
-        console.error(err);
-        throw new Error("Request failed");
+        console.error("NocoDB error:", err);
+        throw new Error("Insert failed");
       }
 
       toast.success("Corporate registration submitted successfully!");
@@ -95,6 +96,7 @@ const CorporateRegister = () => {
 
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+
                 <FormField
                   control={form.control}
                   name="name"
@@ -102,7 +104,7 @@ const CorporateRegister = () => {
                     <FormItem>
                       <FormLabel>Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="Enter full name" {...field} />
+                        <Input {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -116,7 +118,7 @@ const CorporateRegister = () => {
                     <FormItem>
                       <FormLabel>Designation</FormLabel>
                       <FormControl>
-                        <Input placeholder="HR / Manager / Director" {...field} />
+                        <Input {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -130,7 +132,7 @@ const CorporateRegister = () => {
                     <FormItem>
                       <FormLabel>Company Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="Enter company name" {...field} />
+                        <Input {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -145,7 +147,7 @@ const CorporateRegister = () => {
                       <FormItem>
                         <FormLabel>Email</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder="you@company.com" {...field} />
+                          <Input type="email" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -159,7 +161,7 @@ const CorporateRegister = () => {
                       <FormItem>
                         <FormLabel>Phone</FormLabel>
                         <FormControl>
-                          <Input placeholder="9876543210" {...field} />
+                          <Input {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -199,6 +201,7 @@ const CorporateRegister = () => {
                 >
                   Submit Details
                 </Button>
+
               </form>
             </Form>
           </Card>
@@ -208,6 +211,4 @@ const CorporateRegister = () => {
       <Footer />
     </div>
   );
-};
-
-export default CorporateRegister;
+}
