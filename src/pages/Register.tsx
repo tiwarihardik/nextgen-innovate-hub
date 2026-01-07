@@ -18,7 +18,6 @@ import { toast } from "sonner";
 
 /* =========================
    CORPORATE REGISTRATION
-   (ALL FIELDS OPTIONAL)
    ========================= */
 
 const corporateSchema = z.object({
@@ -46,14 +45,16 @@ const CorporateRegister = () => {
   async function onSubmit(values) {
     try {
       const payload = {
-        fields: {
-          Name: values.name || "",
-          Designation: values.designation || "",
-          "Company Name": values.companyName || "",
-          Email: values.email || "",
-          Phone: values.phone || "",
-          "Referred By": values.refBy || "",
-        },
+        records: [
+          {
+            Name: values.name || "",
+            Designation: values.designation || "",
+            "Company Name": values.companyName || "",
+            Email: values.email || "",
+            Phone: values.phone || "",
+            "Referred By": values.refBy || "",
+          },
+        ],
       };
 
       const res = await fetch(
@@ -68,7 +69,11 @@ const CorporateRegister = () => {
         }
       );
 
-      if (!res.ok) throw new Error("Request failed");
+      if (!res.ok) {
+        const err = await res.text();
+        console.error(err);
+        throw new Error("Request failed");
+      }
 
       toast.success("Corporate registration submitted successfully!");
       form.reset();
