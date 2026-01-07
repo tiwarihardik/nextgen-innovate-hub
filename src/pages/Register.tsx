@@ -25,7 +25,7 @@ const corporateSchema = z.object({
   name: z.string().optional(),
   designation: z.string().optional(),
   companyName: z.string().optional(),
-  email: z.string().email("Invalid email").optional().or(z.literal("")),
+  email: z.string().optional(),
   phone: z.string().optional(),
   refBy: z.string().optional(),
 });
@@ -47,12 +47,12 @@ const CorporateRegister = () => {
     try {
       const payload = {
         fields: {
-          Name: values.name || null,
-          Designation: values.designation || null,
-          "Company Name": values.companyName || null,
-          Email: values.email || null,
-          Phone: values.phone || null,
-          "Referred By": values.refBy || null,
+          Name: values.name || "",
+          Designation: values.designation || "",
+          "Company Name": values.companyName || "",
+          Email: values.email || "",
+          Phone: values.phone || "",
+          "Referred By": values.refBy || "",
         },
       };
 
