@@ -18,15 +18,16 @@ import { toast } from "sonner";
 
 /* =========================
    CORPORATE REGISTRATION
+   (ALL FIELDS OPTIONAL)
    ========================= */
 
 const corporateSchema = z.object({
-  name: z.string().min(2, "Name is required"),
-  designation: z.string().min(2, "Designation is required"),
-  companyName: z.string().min(2, "Company name is required"),
-  email: z.string().email("Enter a valid email"),
-  phone: z.string().regex(/^[6-9]\d{9}$/, "Enter a valid phone number"),
-  refBy: z.string().min(1, "Required"),
+  name: z.string().optional(),
+  designation: z.string().optional(),
+  companyName: z.string().optional(),
+  email: z.string().email("Invalid email").optional().or(z.literal("")),
+  phone: z.string().optional(),
+  refBy: z.string().optional(),
 });
 
 const CorporateRegister = () => {
@@ -46,17 +47,17 @@ const CorporateRegister = () => {
     try {
       const payload = {
         fields: {
-          Name: values.name,
-          Designation: values.designation,
-          "Company Name": values.companyName,
-          Email: values.email,
-          Phone: values.phone,
-          "Referred By": values.refBy,
+          Name: values.name || null,
+          Designation: values.designation || null,
+          "Company Name": values.companyName || null,
+          Email: values.email || null,
+          Phone: values.phone || null,
+          "Referred By": values.refBy || null,
         },
       };
 
       const res = await fetch(
-        "https://db.megamindco.com/api/v3/data/pmptxup2eg28i91/m2bra90hvfdy4gc/records",
+        "https://db.megamindco.com/api/v2/tables/m46c9xavtctgenb/records?viewId=vw13akszrw06xac5",
         {
           method: "POST",
           headers: {
@@ -94,7 +95,7 @@ const CorporateRegister = () => {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Name *</FormLabel>
+                      <FormLabel>Name</FormLabel>
                       <FormControl>
                         <Input placeholder="Enter full name" {...field} />
                       </FormControl>
@@ -108,7 +109,7 @@ const CorporateRegister = () => {
                   name="designation"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Designation *</FormLabel>
+                      <FormLabel>Designation</FormLabel>
                       <FormControl>
                         <Input placeholder="HR / Manager / Director" {...field} />
                       </FormControl>
@@ -122,7 +123,7 @@ const CorporateRegister = () => {
                   name="companyName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Company Name *</FormLabel>
+                      <FormLabel>Company Name</FormLabel>
                       <FormControl>
                         <Input placeholder="Enter company name" {...field} />
                       </FormControl>
@@ -137,7 +138,7 @@ const CorporateRegister = () => {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email *</FormLabel>
+                        <FormLabel>Email</FormLabel>
                         <FormControl>
                           <Input type="email" placeholder="you@company.com" {...field} />
                         </FormControl>
@@ -151,7 +152,7 @@ const CorporateRegister = () => {
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Phone *</FormLabel>
+                        <FormLabel>Phone</FormLabel>
                         <FormControl>
                           <Input placeholder="9876543210" {...field} />
                         </FormControl>
@@ -166,7 +167,7 @@ const CorporateRegister = () => {
                   name="refBy"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Referred By *</FormLabel>
+                      <FormLabel>Referred By</FormLabel>
                       <FormControl>
                         <select
                           className="border rounded-md p-3 w-full"
